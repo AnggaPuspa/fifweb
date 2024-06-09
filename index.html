@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar and Header</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif !important;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .navbar {
+            background-color: #fff;
+        }
+        .header {
+            background-color: #F5FCFF;
+            padding: 50px 0;
+        }
+        .header-left h5 {
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header-left h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .header-left p {
+            font-size: 16px;
+            font-weight: 400;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .header-right img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 576px) {
+            .navbar-nav.ml-auto {
+                display: none;
+            }
+        }
+        .skills-section {
+            background-color: #ffffff;
+            padding: 50px 0;
+        }
+        .skills-section h5 {
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .skills-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .card {
+            border: none;
+            background-color: #F5FCFF;
+            text-align: left;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 3px 14px -3px rgba(0,0,0,0.47);
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 10px;
+            color: #333;
+        }
+        .card-text {
+            font-size: 16px;
+            color: #666;
+        }
+        .card::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 0;
+            background-color: #5E3BEE;
+            transition: height 0.3s ease;
+        }
+        .card:hover::after {
+            height: 5px;
+        }
+        @media (max-width: 576px) {
+            .card {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+        .portfolio-section {
+            background-color: #fff;
+            padding: 50px 0;
+        }
+        .portfolio-section h5 {
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .portfolio-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .portfolio-card {
+            border: none;
+            background-color: #FFFFFF;
+            text-align: left;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 3px 14px -3px rgba(0,0,0,0.47);
+        }
+        .portfolio-card img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .portfolio-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 10px;
+            color: #333;
+            padding-left: 10px; /* Padding kiri */
+            padding-right: 10px;
+        }
+        .portfolio-card-text {
+            font-size: 16px;
+            color: #666;
+            padding-left: 10px; /* Padding kiri */
+            padding-right: 10px;
+        }
+        .view-dribble {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            display: flex;
+            align-items: center;
+            position: relative; 
+            padding-left: 10px; 
+            padding-right: 10px;
+            padding-bottom: 10px;
+        }
+        .view-dribble i {
+            transform: rotate(390deg);
+            padding-left: 5px; 
+            padding-right: 10px;
+            color: #006B6A;
+        }
+        
+        .view-dribble span {
+         display: inline-block; 
+         
+        }
+
+        .dribble-line {
+        position: absolute; 
+        left: 10px; 
+        bottom: 10px; 
+        width: 35%; 
+        height: 2px; 
+        background-color: #5E3BEE; 
+       
+        }
+
+        #contact-form{
+            padding: 60px 0;
+        }
+
+        .bold-text {
+            font-weight: bold;
+        }
+
+        input.form-control,
+        textarea.form-control,
+        select.form-control {
+            border-color: #5E3BEE;
+        }
+
+        select.form-control option:checked {
+            font-weight: bold;
+        }
+        footer {
+        background-color: #f5f5f5;
+        padding: 20px 0;
+        }
+
+        .footer-menu {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-menu li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .footer-menu li:last-child {
+            margin-right: 0;
+        }
+
+        .footer-menu li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .footer-menu li a:hover {
+            color: #5e3bee;
+        }
+
+
+        footer {
+            background-color: #F5FCFF;
+            padding: 50px 0;
+        }
+
+        .footer-menu {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-menu li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .footer-menu li:last-child {
+            margin-right: 0;
+        }
+
+        .footer-menu li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .footer-menu li a:hover {
+            color: #5e3bee;
+        }
+
+      
+        footer .container:last-child {
+            margin-top: 20px;
+        }
+
+        footer .container:last-child .row {
+            align-items: center;
+        }
+        
+        .footer-social-icons a {
+            color: #033333; 
+            font-size: 24px; 
+           padding: 10px;
+        }
+
+        .footer-social-icons a:hover {
+            color: #333; 
+        }
+        
+        @media (max-width: 767px) {
+        .footer-menu, .footer-social-icons, .footer-menu li {
+            text-align: center !important;
+            margin: 10px auto !important;
+            display: block !important;
+        }
+    }
+
+        .footer-links a {
+            color: #333; 
+            text-decoration: none; 
+            margin-right: 11px; 
+        }
+
+        .footer-links a:hover {
+            color: #5E3BEE; 
+        }
+
+        @media (max-width: 767px) {
+            .footer-links {
+                margin-top: 20px; 
+            }
+        }
+        .custom-btn {
+            background-color: #5E3BEE; 
+            color: #fff;
+        }
+
+        .custom-btn:hover {
+            background-color: #3A1E81; 
+        }
+
+        .view-dribble a {
+            color: #000;
+        }
+
+         
+        
+        .footer-logo {
+        max-width: 30px; 
+        height: auto;
+    }
+
+
+    .navbar-nav .nav-link.active {
+            color: #5E3BEE !important;
+            font-weight: bold;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">AnggaPuspa</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-form">Contack me</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-nav ml-auto d-none d-lg-flex">
+                <a class="nav-link btn custom-btn text-white" href="#">Get In Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="Home"   class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 header-left">
+                    <h5>Hey, I am Angga Puspa</h5>
+                    <h1>I have experience in developing web and mobile applications for a variety of platforms and devices</h1>
+                    <p>Unduh CV Saya untuk Profil Lengkap Saya dan Scroll ke Bawah untuk Lihat Portofolio Saya </p>
+                    <a href="https://cdn.discordapp.com/attachments/1066397209475694686/1249306734527512687/AnggaPuspa_1.pdf?ex=6666d310&is=66658190&hm=b84e23d438a516bc039480ec77467ae10fb8bc0b53e70543a63b8f0674d96e4d&" download="nama_cv_saya.pdf" class="btn custom-btn">Downlaod CV  </a>
+
+                </div>
+                <div class="col-md-6 header-right text-md-right">
+                    <img src="IMG/mE2.png" alt="Person Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section  id="Portfolio"   class="skills-section"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>My Skills</h5>
+                    <h2>My Expertise</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="IMG/coding.png" alt="Skill Logo">
+                            <h3 class="card-title">Front-end developer</h3>
+                            <p class="card-text">Saya selalu mengikuti perkembangan terbaru dalam teknologi front-end dan berkomitmen untuk membuat website yang terbaik untuk pengguna.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="IMG/UI & UX Design.png" alt="Skill Logo">
+                            <h3 class="card-title">UI & UX Design</h3>
+                            <p class="card-text">Saya memiliki pengetahuan dasar dalam prinsip-prinsip desain UI/UX, teori warna, 
+                                
+                        tipografi, dan tata letak, yang saya terapkan di desain saya</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="IMG/Strategy & Direction (1).png" alt="Skill Logo">
+                            <h3 class="card-title">Android developer</h3>
+                            <p class="card-text">Saya bersemangat untuk menciptakan aplikasi Android yang mudah digunakan dan menarik yang memenuhi kebutuhan pengguna</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="Portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 class="bold-text">Recent Projects</h5>
+                    <h2>My Portfolio</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="portfolio-card">
+                        <img src="IMG/Group 4.png" alt="Project Image">
+                        <h3 class="portfolio-card-title">ZAM HomeCare</h3>
+                        <p class="portfolio-card-text">Zam Home Care adalah website yang diprakarsai oleh saya dan teman-teman saya untuk mengikuti Lomba INVENTION 2022. 
+                         Berkat kerja keras tim, website ini berhasil membawa kami ke babak final</p>
+                        <div class="view-dribble">
+                            <a href="https://storied-flan-0a2cc8.netlify.app/"><span>
+                                View in Web
+                            </span></a>
+                            <i class="fas fa-arrow-up"></i>
+                            <div class="dribble-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-card">
+                        <img src="IMG/D.png" alt="Project Image">
+                        <h3 class="portfolio-card-title">IntelliBrain</h3>
+                        <p class="portfolio-card-text">IntelliBrain adalah website yang diprakarsai oleh saya dan teman-teman saya untuk mengikuti 
+                            Lomba INVENTION 2023. 
+                            Berkat kerja keras tim, website ini berhasil membawa kami ke babak final lagi</p>
+                        <div class="view-dribble">
+                            <a href="www.intelliBrain.com"><span>
+                                View in Web
+                            </span></a>
+                            <i class="fas fa-arrow-up"></i>
+                            <div class="dribble-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-card">
+                        <img src="IMG/Mockup 02.png" alt="Project Image">
+                        <h3 class="portfolio-card-title">ONE transport</h3>
+                        <p class="portfolio-card-text">Ini  adalah  App  yang  saya bikin  dan  team onetpt Semasa saya magang  Di  taksu  tech.
+                            App  ini  di  gunakan  oleh Salah satu sekolah   di  singapore
+                        </p>
+                        <div class="view-dribble">
+                            <span>View in APP</span>
+                            <i class="fas fa-arrow-up"></i>
+                            <div class="dribble-line"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="portfolio-card">
+                        <img src="IMG/Mockup 03.png" alt="Project Image">
+                        <h3 class="portfolio-card-title">ONE transport</h3>
+                        <p class="portfolio-card-text">Ini adalah App yang saya bikin dan team onetpt Semasa saya magang Di taksu tech.
+                            App ini di gunakan oleh  sekolah di singapore 
+                        </p>
+                        <div class="view-dribble">
+                            <span>View in APP</span>
+                            <i class="fas fa-arrow-up"></i>
+                            <div class="dribble-line"></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- from  -->
+    <section id="contact-form">
+        <div class="container">
+            <div class="text-center">
+                <h2>Get in Touch</h2>
+                <p>Contact Me</p>
+            </div>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="chooseTopic">Choose Topic</label>
+                    <select class="form-control" id="chooseTopic">
+                        <option>Select a topic</option>
+                        <option>Mobile App</option>
+                        <option>Web developer</option>
+                        <option>UI & UX</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn custom-btn" data-toggle="modal" data-target="#serverDownModal">Submit</button>
+                </div>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="serverDownModal" tabindex="-1" role="dialog" aria-labelledby="serverDownModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="serverDownModalLabel">Server Error</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Server sedang down, coba lagi nanti.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 text-left">
+                    <img src="IMG/10200616.png" alt="Logo" class="footer-logo">
+                </div>
+                <div class="col-md-6 text-center">
+                    <ul class="footer-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 text-right footer-social-icons">
+                    <a href=" www.facebook.com/fecebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://github.com/AnggaPuspa"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/AnggaPuspa5"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    Made with 💖 by AnggaPuspa
+                </div>
+                <div class="col-md-6 text-right footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+   
+    
+    <script>
+      
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var inputs = document.querySelectorAll('input, textarea');
+            var select = document.getElementById('chooseTopic');
+
+            inputs.forEach(function(input) {
+                input.addEventListener('input', function() {
+                    if (input.value.trim() !== '') {
+                        input.classList.add('bold-text');
+                    } else {
+                        input.classList.remove('bold-text');
+                    }
+                });
+            });
+
+            select.addEventListener('change', function() {
+                var selectedOption = select.options[select.selectedIndex];
+                if (selectedOption.value !== '') {
+                    selectedOption.classList.add('bold-text');
+                } else {
+                    selectedOption.classList.remove('bold-text');
+                }
+            });
+        });
+
+        $(document).ready(function() {
+       
+        $(".navbar-nav a").on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
+                    window.location.hash = hash;
+                });
+            }
+        });
+
+       
+        $(window).on('scroll', function() {
+                var scrollPos = $(document).scrollTop();
+                $('.navbar-nav a').each(function() {
+                    var currLink = $(this);
+                    var refElement = $(currLink.attr("href"));
+                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                        $('.navbar-nav a').removeClass("active");
+                        currLink.addClass("active");
+                    } else {
+                        currLink.removeClass("active");
+                    }
+                });
+            });
+        });
+
+
+        $(document).ready(function() {
+
+            $(".navbar-nav a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+        });
+
+            
+        $(window).on('scroll', function() {
+                var scrollPos = $(document).scrollTop();
+                $('.navbar-nav a').each(function() {
+                    var currLink = $(this);
+                    var refElement = $(currLink.attr("href"));
+                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                        $('.navbar-nav a').removeClass("active");
+                        currLink.addClass("active");
+                    } else {
+                        currLink.removeClass("active");
+                    }
+                });
+            });
+        });
+
+
+
+    </script>
+
+    
+
+</body>
+</html>
